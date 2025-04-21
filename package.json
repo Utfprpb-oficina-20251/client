@@ -14,7 +14,8 @@
   },
   "dependencies": {
     "eslint-plugin-prettier": "^5.2.6",
-    "eslint-plugin-react-dom": "^1.48.4","eslint-plugin-react-x": "^1.48.4",
+    "eslint-plugin-react-dom": "^1.48.4",
+    "eslint-plugin-react-x": "^1.48.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
