@@ -1,6 +1,5 @@
 export default {
-  '**/*.{ts,tsx}': (stagedFiles) => [
-    `eslint .`,
-    `prettier --write ${stagedFiles.join(' ')}`,
-  ],
+  'lint-staged': {
+    '*.{js,jsx,ts,tsx,json,css,scss,md}': 'prettier --write',
+  },
 }
