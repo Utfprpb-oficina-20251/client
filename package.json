@@ -11,7 +11,7 @@
     "preview": "vite preview",
     "format": "prettier --write .",
     "prepare": "husky",
-    "start": "vite build && vite preview"
+    "start": "npm install && vite build && vite preview"
   },
   "dependencies": {
     "axios": "^1.8.4",
