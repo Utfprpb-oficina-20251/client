@@ -11,7 +11,7 @@
     "preview": "vite preview",
     "format": "prettier --write .",
     "prepare": "husky",
-    "start": "npm install && vite build && vite preview"
+    "start": "serve -s dist"
   },
   "dependencies": {
     "axios": "^1.8.4",
@@ -20,7 +20,8 @@
     "eslint-plugin-react-x": "^1.48.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-router-dom": "^7.5.1"
+    "react-router-dom": "^7.5.1",
+    "serve": "^14.2.4"
   },
   "devDependencies": {
     "@eslint/js": "^9.22.0",
