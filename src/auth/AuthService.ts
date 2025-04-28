@@ -1,7 +1,7 @@
 import { api } from '../libs/axios.ts'
-import { IUserLogin } from '../commons/interfaces.ts'
+import { IUserSignIn } from '../commons/interfaces.ts'
 
-const signup = async (user: IUserLogin): Promise<any> => {
+const signup = async (user: IUserSignIn): Promise<any> => {
   let response
   try {
     response = await api.post('/users', user)
@@ -10,7 +10,7 @@ const signup = async (user: IUserLogin): Promise<any> => {
   }
   return response
 }
-const login = async (user: IUserLogin): Promise<any> => {
+const login = async (user: IUserSignIn): Promise<any> => {
   let response
   try {
     response = await api.post('/login', user)

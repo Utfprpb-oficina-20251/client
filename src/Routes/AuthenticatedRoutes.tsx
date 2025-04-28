@@ -1,5 +1,5 @@
 import { Navigate, Outlet, useLocation } from 'react-router-dom'
-import AuthService from '../services/AuthService'
+import AuthService from '../auth/AuthService'
 
 export function AuthenticatedRoutes() {
   const location = useLocation()
