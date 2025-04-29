@@ -1,4 +1,8 @@
-name: Build
+name: SonarCloud
+
+permissions:
+  checks: write
+  pull-requests: read
 on:
   push:
     branches:
@@ -7,6 +11,7 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
   workflow_dispatch: # Manual
+
 jobs:
   sonarqube:
     name: SonarQube
