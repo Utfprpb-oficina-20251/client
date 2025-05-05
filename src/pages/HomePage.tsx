@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import reactLogo from '../assets/react.svg'
+import { API_URL } from '../config.ts';
 
 export function HomePage() {
   const [count, setCount] = useState(0)
@@ -17,6 +18,9 @@ export function HomePage() {
         </button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
+        </p>
+        <p>
+          url is {API_URL}
         </p>
       </div>
       <p className="read-the-docs">
