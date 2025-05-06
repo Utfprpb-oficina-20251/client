@@ -25,7 +25,7 @@ export function useAuth() {
     setAuthenticatedUser(undefined)
     setAuthenticated(false)
 
-    api.defaults.headers.common['Authorization'] = ''
+    delete api.defaults.headers.common['Authorization']
   }
 
   return {
