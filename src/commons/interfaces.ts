@@ -21,3 +21,16 @@ export interface AuthenticatedUser {
 export interface Authorities {
   authority: string
 }
+
+export interface Projeto{
+  id: number
+  titulo: string
+  descricao: string
+  justificativa: string
+  dataInicio: Date
+  dataTermino: Date
+  publicoAlvo: string
+  vinculadoDisciplina: boolean
+  restricaoPublico: string
+  status: string
+}
