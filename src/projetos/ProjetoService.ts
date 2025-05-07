@@ -1,53 +1,27 @@
-import { api } from '../libs/axios.ts'
-import { Projeto } from '../commons/interfaces.ts'
+// src/services/ProjetoService.ts
+import { Projeto } from '../commons/interfaces'
+import { BaseService } from '@/utils/BaseService.ts'
 
-const baseUrl = '/projeto'
-
-const save = async (projeto: Projeto) => {
-  let response
-  try {
-    response = await api.post(baseUrl, projeto)
-  } catch (error) {
-    response = error.response
+class ProjetoService extends BaseService {
+  constructor() {
+    super('/projeto')
   }
-  return response
-}
 
-const findById = async (id: number) => {
-  let response
-  try {
-    response = await api.get(`${baseUrl}/${id}`)
-  } catch (error) {
-    response = error.response
+  async save(projeto: Projeto): Promise<Projeto> {
+    return this.post<Projeto>(projeto)
   }
-  return response
-}
 
-const findAll = async () => {
-  let response
-  try {
-    response = await api.get(baseUrl)
-  } catch (error) {
-    response = error.response
+  async findById(id: number): Promise<Projeto> {
+    return this.get<Projeto>(`/${id}`)
   }
-  return response
-}
 
-const remove = async (id: number) => {
-  let response
-  try {
-    response = await api.delete(`${baseUrl}/${id}`)
-  } catch (error) {
-    response = error.response
+  async findAll(): Promise<Projeto[]> {
+    return this.get<Projeto[]>()
   }
-  return response
+
+  async remove(id: number): Promise<void> {
+    return this.delete(`/${id}`)
+  }
 }
 
-const ProjetoService = {
-  save,
-  findById,
-  findAll,
-  remove,
-}
-
-export default ProjetoService
+export default new ProjetoService()
