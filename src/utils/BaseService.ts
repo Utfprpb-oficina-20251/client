@@ -15,7 +15,7 @@ export abstract class BaseService {
     }
   }
 
-  protected async post<T>(data: any, url: string = ''): Promise<T> {
+  protected async post<T, D = unknown>(data: D, url: string = ''): Promise<T> {
     try {
       const response = await api.post(`${this.baseUrl}${url}`, data)
       return response.data
@@ -24,7 +24,7 @@ export abstract class BaseService {
     }
   }
 
-  protected async put<T>(data: any, url: string = ''): Promise<T> {
+  protected async put<T, D = unknown>(data: D, url: string = ''): Promise<T> {
     try {
       const response = await api.put(`${this.baseUrl}${url}`, data)
       return response.data
