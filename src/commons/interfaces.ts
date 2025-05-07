@@ -8,6 +8,7 @@ export interface IUserSignUp {
   username: string
   password: string
 }
+
 export interface AuthenticationResponse {
   token: string
   user: AuthenticatedUser
@@ -22,7 +23,7 @@ export interface Authorities {
   authority: string
 }
 
-export interface Projeto{
+export interface Projeto {
   id: number
   titulo: string
   descricao: string
@@ -32,5 +33,16 @@ export interface Projeto{
   publicoAlvo: string
   vinculadoDisciplina: boolean
   restricaoPublico: string
+  equipeExecutora: Servidor[]
   status: string
+}
+
+export interface Servidor {
+  id?: number
+  nomeCompleto: string
+  cpf?: string
+  siape?: string
+  emailInstitucional: string
+  telefone?: string
+  departamento: string
 }
