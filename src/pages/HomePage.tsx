@@ -1,11 +1,14 @@
 import { useState } from 'react'
 import reactLogo from '../assets/react.svg'
+import { API_URL } from '../config.ts';
+import { Link } from "react-router-dom"
+import { Button } from "../components/ui/button"
 
 export function HomePage() {
   const [count, setCount] = useState(0)
   return (
-    <>
-      <div>
+    <div >
+      <div >
         <a href="https://react.dev" target="_blank">
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
@@ -18,10 +21,16 @@ export function HomePage() {
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
+        <p>
+          url is {API_URL}
+        </p>
+        <Link to="/TestPage">
+            <Button variant="ghost">Test Page</Button>
+          </Link>
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-    </>
+    </div>
   )
 }
