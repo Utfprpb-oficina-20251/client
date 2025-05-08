@@ -17,7 +17,7 @@ export function HomeProjetosListPage() {
 
   const loadProjetos = async () => {
     const response = await ProjetoService.findAll()
-    if (!response) {
+    if (response) {
       setProjetos(response)
     }
     if (projetos.length === 0) {
@@ -66,8 +66,22 @@ export function HomeProjetosListPage() {
             <CardContent>
               <div className="grid w-full items-center gap-4">
                 <div className="flex flex-col space-y-1.5">
-                  <p>Data de inicio: {projeto.dataInicio.toDateString()}</p>
-                  <p>Data de termino: {projeto.dataTermino.toDateString()}</p>
+                  <p>
+                    Data de inicio:{' '}
+                    {projeto.dataInicio
+                      ? projeto.dataInicio.toLocaleDateString('pt-BR')
+                      : new Date(projeto.dataInicio).toLocaleDateString(
+                          'pt-BR',
+                        )}
+                  </p>
+                  <p>
+                    Data de termino:{' '}
+                    {projeto.dataTermino
+                      ? projeto.dataTermino.toLocaleDateString('pt-BR')
+                      : new Date(projeto.dataTermino).toLocaleDateString(
+                          'pt-BR',
+                        )}
+                  </p>
                   <p>Público alvo: {projeto.publicoAlvo}</p>
                   <p>Restrição: {projeto.restricaoPublico}</p>
                 </div>
