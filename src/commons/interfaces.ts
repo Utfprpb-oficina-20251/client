@@ -46,3 +46,11 @@ export interface Servidor {
   telefone?: string
   departamento: string
 }
+
+export interface ErrorResponse {
+  timestamp: number
+  status: number
+  message: string
+  url: string
+  validationErrors: string[]
+}

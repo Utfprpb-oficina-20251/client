@@ -1,35 +1,37 @@
+import { ErrorResponse } from '@/commons/interfaces'
 import { AxiosError } from 'axios'
 
-export interface ErrorResponse {
-  message: string
-  status: number
-  data?: unknown
-  code?: string
-}
-
 export class HttpErrorHandler {
-  static handle(error: AxiosError): ErrorResponse {
+  static handle(error: AxiosError<ErrorResponse>): ErrorResponse {
+    const baseUrl = error.config?.url || ''
+
     if (error.response) {
       return {
-        message: error.response.data?.message || 'Erro na requisição',
+        timestamp:
+          error.response.data.timestamp || new Date().getMilliseconds(),
+        message: error.response.data.message,
         status: error.response.status,
-        data: error.response.data,
-        code: error.code,
+        url: baseUrl,
+        validationErrors: error.response.data.validationErrors || [],
       }
     }
 
     if (error.request) {
       return {
+        timestamp: new Date().getMilliseconds(),
         message: 'Servidor não respondeu à requisição',
         status: 503,
-        code: 'SERVICE_UNAVAILABLE',
+        url: baseUrl,
+        validationErrors: [],
       }
     }
 
     return {
+      timestamp: new Date().getMilliseconds(),
       message: 'Erro ao configurar a requisição',
       status: 500,
-      code: 'INTERNAL_ERROR',
+      url: baseUrl,
+      validationErrors: [],
     }
   }
 

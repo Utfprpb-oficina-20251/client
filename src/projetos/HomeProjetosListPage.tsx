@@ -9,7 +9,7 @@ import {
   CardTitle,
 } from '@/components/ui/card.tsx'
 
-export function HomePage() {
+export function HomeProjetosListPage() {
   const [projetos, setProjetos] = useState<Projeto[]>([])
   useEffect(() => {
     loadProjetos()
@@ -17,10 +17,10 @@ export function HomePage() {
 
   const loadProjetos = async () => {
     const response = await ProjetoService.findAll()
-    if (response.status === 200) {
-      setProjetos(response.data)
+    if (!response) {
+      setProjetos(response)
     }
-    if (response.data.length === 0) {
+    if (projetos.length === 0) {
       const projmock = [
         {
           id: 1,

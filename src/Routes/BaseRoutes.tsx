@@ -1,6 +1,6 @@
 import { AuthenticatedRoutes } from './AuthenticatedRoutes.tsx'
 import { Route, Routes } from 'react-router-dom'
-import { HomePage } from '../pages/HomePage.tsx'
+import { HomeProjetosListPage } from '../projetos/HomeProjetosListPage.tsx'
 import { TestPage } from '../pages/TestPage.tsx'
 
 export function BaseRoutes() {
@@ -8,7 +8,7 @@ export function BaseRoutes() {
     <>
       <Routes>
         {/*Public Routes*/}
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomeProjetosListPage />} />
         <Route path="/TestPage" element={<TestPage />} />
         {/*Private Routes*/}
         <Route element={<AuthenticatedRoutes />} />
